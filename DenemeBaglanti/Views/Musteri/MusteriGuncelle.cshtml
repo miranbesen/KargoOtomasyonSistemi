@@ -1,0 +1,33 @@
+﻿@model DenemeBaglanti.Models.Entity.Musteri
+@{
+    ViewBag.Title = "Musteri Güncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("MusteriGuncelle", "Musteri", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.LabelFor(m => m.TC_Kimlik)
+        @Html.TextBoxFor(m => m.TC_Kimlik, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Ad)
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Soyad)
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Telefon_No)
+        @Html.TextBoxFor(m => m.Telefon_No, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Adres)
+        @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Musteri Güncelle</button>
+    </div>
+
+}
+

@@ -1,0 +1,112 @@
+﻿@model List<DenemeBaglanti.Models.Kargo.KargoModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<style>
+    .table-wrapper {
+        position: relative;
+    }
+
+    .table-scroll {
+        height: 300px;
+        overflow: auto;
+        margin-top: 20px;
+    }
+
+    .table-wrapper table {
+        width: 100%;
+    }
+
+        .table-wrapper table * {
+            color: black;
+        }
+
+        .table-wrapper table thead tr th .text {
+            position: absolute;
+            top: -20px;
+            z-index: 2;
+            height: 20px;
+            width: 35%;
+            border: 1px solid red;
+        }
+
+    #myTable tr {
+        /*Add a bottom border to all table rows  */
+        border-bottom: 1px solid #ddd;
+    }
+
+        #myTable tr.header, #myTable tr:hover {
+            /* Add a grey background color to the table header and on hover */
+            background-color: #f1f1f1;
+        }
+</style>
+
+<br />
+<div class="row">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Arama">
+</div>
+<div class="row">
+    <div class="table-wrapper">
+        <div class="table-scroll">
+            <table id="myTable" class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>Müşteri Adı Soyadı</th>
+                        <th>Kurye Adı Soyadı</th>
+                        <th>Tur</th>
+                        <th>Boyut</th>
+                        <th>Agırlık</th>
+                        <th>Fiyat</th>
+                        <th>SIL</th>
+                        <th>GUNCELLE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var icerik in Model)
+                    {
+                        <tr>
+                            <td>@icerik.MusteriAdiSoyadi</td>
+                            <td>@icerik.KuryeAdiSoyadi</td>
+                            <td>@icerik.Tur</td>
+                            <td>@icerik.Boyut</td>
+                            <td>@icerik.Agirlik</td>
+                            <td>@icerik.Fiyat</td>
+                            <td><a href="/Kargo/KargoSil/@icerik.Id" class="btn btn-danger">SIL</a></td>
+                            <td><a href="/Kargo/KargoGuncelle/@icerik.Id" class="btn btn-success">GUNCELLE</a></td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Tüm tablo satırarında dolaşıp, arama ile eşleşmeyenleri gizle
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0]; //0 satıra göre arama işlemi yapıyor.
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+<div class="row">
+    <a href="/Kargo/KargoEkle/" class="btn btn-primary">YENİ KARGO EKLE</a>
+</div>

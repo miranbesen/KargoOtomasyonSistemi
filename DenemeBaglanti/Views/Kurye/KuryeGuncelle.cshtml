@@ -1,0 +1,31 @@
+﻿@model DenemeBaglanti.Models.Entity.Kurye
+@{
+    ViewBag.Title = "KuryeGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("KuryeGuncelle", "Kurye", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.LabelFor(m => m.Ad)
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Soyad)
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Telefon)
+        @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Durum)
+        @Html.TextBoxFor(m => m.Durum, new { @class = "form-control" })
+        <br />
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Kurye Guncelle</button>
+    </div>
+
+}
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Musteri Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("MusteriEkle", "Musteri", FormMethod.Post))
+{
+    <div>
+        <label>MüşteriAdı</label>
+        <input type="text" class="form-control" name="Ad" />
+    </div>
+    <div>
+        <label>MüşteriSoyadı</label>
+        <input type="text" class="form-control" name="Soyad" />
+    </div>
+    <div>
+        <label>Telefon</label>
+        <input type="text" class="form-control" name="Telefon_No" />
+    </div>
+    <div>
+        <label>TC Kimlik</label>
+        <input type="text" class="form-control" name="TC_Kimlik" />
+    </div>
+    <div>
+        <label>Adres Bilgisi</label>
+        <input type="text" class="form-control" name="Adres" />
+    </div>
+    <div style="margin-top:15px">
+        <input type="submit" value="Musteri Ekle" class="btn btn-success" />
+    </div>
+
+}

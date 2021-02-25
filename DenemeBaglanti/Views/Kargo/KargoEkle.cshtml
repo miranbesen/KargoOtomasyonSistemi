@@ -1,0 +1,39 @@
+﻿@model DenemeBaglanti.Models.Kargo.KargoAddViewModel
+
+@{
+    ViewBag.Title = "Kargo Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("KargoEkle", "Kargo", FormMethod.Post))
+{
+    <div>
+        <label>Müşteri</label>
+        @Html.DropDownList("Musteri_Id", Model.MusteriSelectList, "Seçiniz", new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Kurye</label>
+        @Html.DropDownList("Kurye_Id", Model.KuryeSelectList, "Seçiniz", new { @class = "form-control" })
+        @*@Html.DropDownListFor(m => m.Kargo.Kurye_Id, (List<SelectListItem>)ViewBag.dgr, "Seçiniz", new { @class = "form-control" })*@
+    </div>
+    <div>
+        <label>Tür</label>
+        <input type="text" class="form-control" name="Tur" />
+    </div>
+    <div>
+        <label>Boyut</label>
+        <input type="text" class="form-control" name="Boyut" />
+    </div>
+    <div>
+        <label>Ağırlık</label>
+        <input type="text" class="form-control" name="Agirlik" />
+    </div>
+    <div>
+        <label>Fiyat</label>
+        <input type="text" class="form-control" name="Fiyat" />
+    </div>
+    <div style="margin-top:15px">
+        <input type="submit" value="Kargo Ekle" class="btn btn-success" />
+    </div>
+}
+

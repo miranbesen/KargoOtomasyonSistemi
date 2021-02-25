@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5EB12903-D148-4E20-B3DD-99D2A7E60CAC}</ProjectGuid>
+    <ProjectGuid>{F3700244-32A7-434A-A2A1-9D6ADB4F946E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -137,31 +137,31 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Kargo.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>KargoOtomasyonEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\KargoOtomasyonEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KargoOtomasyonEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\KargoOtomasyonEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KargoOtomasyonEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\KargoOtomasyonEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KargoOtomasyonEntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Kurye.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>KargoOtomasyonEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Musteri.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>KargoOtomasyonEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>KargoOtomasyonEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kargo\KargoAddViewModel.cs" />
     <Compile Include="Models\Kargo\KargoModel.cs" />
@@ -178,24 +178,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Entity\Model1.Context.tt">
+    <Content Include="Models\Entity\KargoOtomasyonEntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>KargoOtomasyonEntityModel.edmx</DependentUpon>
+      <LastGenOutput>KargoOtomasyonEntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Entity\Model1.tt">
+    <Content Include="Models\Entity\KargoOtomasyonEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>KargoOtomasyonEntityModel.edmx</DependentUpon>
+      <LastGenOutput>KargoOtomasyonEntityModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Entity\Model1.edmx">
+    <EntityDeploy Include="Models\Entity\KargoOtomasyonEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>KargoOtomasyonEntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Entity\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\Entity\KargoOtomasyonEntityModel.edmx.diagram">
+      <DependentUpon>KargoOtomasyonEntityModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -224,15 +224,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Kargo\Index.cshtml" />
-    <Content Include="Views\Kurye\Index.cshtml" />
     <Content Include="Views\Musteri\Index.cshtml" />
+    <Content Include="Views\Kurye\Index.cshtml" />
+    <Content Include="Views\Anasayfa\Home.cshtml" />
+    <Content Include="Views\Kargo\KargoEkle.cshtml" />
+    <Content Include="Views\Kurye\KuryeEkle.cshtml" />
     <Content Include="Views\Musteri\MusteriEkle.cshtml" />
     <Content Include="Views\Musteri\MusteriGuncelle.cshtml" />
-    <Content Include="Views\Kargo\KargoEkle.cshtml" />
-    <Content Include="Views\Kargo\KargoGuncelle.cshtml" />
-    <Content Include="Views\Kurye\KuryeEkle.cshtml" />
     <Content Include="Views\Kurye\KuryeGuncelle.cshtml" />
-    <Content Include="Views\Anasayfa\Index.cshtml" />
+    <Content Include="Views\Kargo\KargoGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,9 +269,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4987</DevelopmentServerPort>
+          <DevelopmentServerPort>2348</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4987/</IISUrl>
+          <IISUrl>http://localhost:2348/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -283,7 +283,7 @@
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>

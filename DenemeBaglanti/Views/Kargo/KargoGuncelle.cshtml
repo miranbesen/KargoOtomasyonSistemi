@@ -1,0 +1,38 @@
+﻿@model DenemeBaglanti.Models.Entity.Kargo
+
+
+@{
+    ViewBag.Title = "KargoGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("KargoGuncelle", "Kargo", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.LabelFor(m => m.Kurye_Id, "Kurye Adı Soyadı")
+        @Html.DropDownListFor(m => m.Kurye_Id, (List<SelectListItem>)ViewBag.KuryeAdSoyad, "Seçiniz", new { @class = "form-control" })
+
+
+        @Html.LabelFor(m => m.Musteri_Id, "Müşteri Ad Soyadı")
+        @Html.DropDownListFor(m => m.Musteri_Id, (List<SelectListItem>)ViewBag.MusteriAdSoyad, "Seçiniz", new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Boyut)
+        @Html.TextBoxFor(m => m.Boyut, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Fiyat)
+        @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Agirlik)
+        @Html.TextBoxFor(m => m.Agirlik, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Tur)
+        @Html.TextBoxFor(m => m.Tur, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-warning">Kargo Guncelle</button>
+    </div>
+}

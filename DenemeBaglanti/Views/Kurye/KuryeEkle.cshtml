@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Kurye Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("KuryeEkle", "Kurye", FormMethod.Post))
+{
+    <div>
+        <label>Kurye Ad</label>
+        <input type="text" class="form-control" name="Ad" />
+    </div>
+    <div>
+        <label>Kurye Soyad</label>
+        <input type="text" class="form-control" name="Soyad" />
+    </div>
+    <div>
+        <label>Kurye Telefon</label>
+        <input type="text" class="form-control" name="Telefon" />
+    </div>
+    <div>
+        <label>Kurye Durum</label>
+        <input type="text" class="form-control" name="Durum" />
+    </div>
+    <div style="margin-top:15px">
+        <input type="submit" value="Kurye Ekle" class="btn btn-success" />
+    </div>
+
+}
+
