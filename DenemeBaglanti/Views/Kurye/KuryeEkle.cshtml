@@ -1,4 +1,4 @@
-﻿
+﻿@model DenemeBaglanti.Models.Kurye.KuryeModel
 @{
     ViewBag.Title = "Kurye Ekle";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -6,21 +6,29 @@
 
 @using (Html.BeginForm("KuryeEkle", "Kurye", FormMethod.Post))
 {
-    <div>
-        <label>Kurye Ad</label>
-        <input type="text" class="form-control" name="Ad" />
-    </div>
+<div>
+    <label>Kurye Ad</label>
+    @*<input type="text" class="form-control" name="Ad" />*@
+    @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Ad, "", new { @style = "color:red" })
+</div>
     <div>
         <label>Kurye Soyad</label>
-        <input type="text" class="form-control" name="Soyad" />
+        @*<input type="text" class="form-control" name="Soyad" />*@
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Soyad, "", new { @style = "color:red" })
     </div>
     <div>
         <label>Kurye Telefon</label>
-        <input type="text" class="form-control" name="Telefon" />
+        @*<input type="text" class="form-control" name="Telefon" />*@
+        @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Telefon, "", new { @style = "color:red" })
     </div>
     <div>
         <label>Kurye Durum</label>
-        <input type="text" class="form-control" name="Durum" />
+        @Html.TextBoxFor(m => m.Durum, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Durum, "", new { @style = "color:red" })
+        @*<input type="text" class="form-control" name="Durum" />*@
     </div>
     <div style="margin-top:15px">
         <input type="submit" value="Kurye Ekle" class="btn btn-success" />

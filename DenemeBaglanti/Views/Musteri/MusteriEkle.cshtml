@@ -1,4 +1,4 @@
-﻿
+﻿@model DenemeBaglanti.Models.Musteri.MusteriModel
 @{
     ViewBag.Title = "Musteri Ekle";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -8,24 +8,35 @@
 {
     <div>
         <label>MüşteriAdı</label>
-        <input type="text" class="form-control" name="Ad" />
+        @* <input type="text" class="form-control" name="Ad" />*@
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ad, "", new { @style = "color:red" })
     </div>
     <div>
         <label>MüşteriSoyadı</label>
-        <input type="text" class="form-control" name="Soyad" />
+        @*<input type="text" class="form-control" name="Soyad" />*@
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Soyad, "", new { @style = "color:red" })
     </div>
     <div>
         <label>Telefon</label>
-        <input type="text" class="form-control" name="Telefon_No" />
+        @Html.TextBoxFor(m => m.Telefon_No, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Telefon_No, "", new { @style = "color:red" })
+        @*<input type="text" class="form-control" name="Telefon_No" />*@
     </div>
     <div>
         <label>TC Kimlik</label>
-        <input type="text" class="form-control" name="TC_Kimlik" />
+        @Html.TextBoxFor(m => m.TC_Kimlik, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TC_Kimlik, "", new { @style = "color:red" })
+        @*<input type="text" class="form-control" name="TC_Kimlik" />*@
     </div>
     <div>
         <label>Adres Bilgisi</label>
-        <input type="text" class="form-control" name="Adres" />
+        @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Adres, "", new { @style = "color:red" })
+        @*<input type="text" class="form-control" name="Adres" />*@
     </div>
+
     <div style="margin-top:15px">
         <input type="submit" value="Musteri Ekle" class="btn btn-success" />
     </div>

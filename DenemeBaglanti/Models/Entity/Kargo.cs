@@ -11,15 +11,27 @@ namespace DenemeBaglanti.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Kargo
     {
         public int Id { get; set; }
+
+      
         public int Musteri_Id { get; set; }
+        
+
         public int Kurye_Id { get; set; }
+        
+   
         public string Tur { get; set; }
+        
+      
         public decimal Boyut { get; set; }
+        
+     
         public decimal Agirlik { get; set; }
+
         public decimal Fiyat { get; set; }
     
         public virtual Kurye Kurye { get; set; }

@@ -41,10 +41,23 @@ namespace DenemeBaglanti.Controllers
         }
 
         [HttpPost]
-        public ActionResult MusteriEkle(Musteri p1)
+        public ActionResult MusteriEkle(MusteriModel musteri)
         {
-            db.Musteri.Add(p1);
+            if(!ModelState.IsValid)
+            {
+                return View("MusteriEkle");
+            }
+
+            var dbMusteri = new Musteri();
+            dbMusteri.Ad = musteri.Ad;
+            dbMusteri.Soyad = musteri.Soyad;
+            dbMusteri.Telefon_No = musteri.Telefon_No;
+            dbMusteri.TC_Kimlik = musteri.TC_Kimlik;
+            dbMusteri.Adres = musteri.Adres;
+
+            db.Musteri.Add(dbMusteri);
             db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
 

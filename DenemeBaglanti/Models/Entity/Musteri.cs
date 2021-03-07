@@ -11,7 +11,8 @@ namespace DenemeBaglanti.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Musteri
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,20 @@ namespace DenemeBaglanti.Models.Entity
         }
     
         public int Id { get; set; }
+        
+       
         public string TC_Kimlik { get; set; }
+        
+       
         public string Ad { get; set; }
+        
+        
         public string Soyad { get; set; }
+        
+       
         public string Telefon_No { get; set; }
+        
+        
         public string Adres { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

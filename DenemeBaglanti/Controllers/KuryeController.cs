@@ -41,9 +41,19 @@ namespace DenemeBaglanti.Controllers
         }
 
         [HttpPost]
-        public ActionResult KuryeEkle(Kurye p1)
+        public ActionResult KuryeEkle(KuryeModel p1)
         {
-            db.Kurye.Add(p1);
+            if (!ModelState.IsValid)
+            {
+                return View("KuryeEkle");
+            }
+            var kurye = new Kurye();
+            kurye.Ad = p1.Ad;
+            kurye.Soyad = p1.Soyad;
+            kurye.Telefon = p1.Telefon;
+            kurye.Durum = p1.Durum;
+
+            db.Kurye.Add(kurye);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

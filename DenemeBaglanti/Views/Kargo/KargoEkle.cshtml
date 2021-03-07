@@ -7,30 +7,40 @@
 
 @using (Html.BeginForm("KargoEkle", "Kargo", FormMethod.Post))
 {
-    <div>
-        <label>Müşteri</label>
-        @Html.DropDownList("Musteri_Id", Model.MusteriSelectList, "Seçiniz", new { @class = "form-control" })
-    </div>
-    <div>
-        <label>Kurye</label>
-        @Html.DropDownList("Kurye_Id", Model.KuryeSelectList, "Seçiniz", new { @class = "form-control" })
-        @*@Html.DropDownListFor(m => m.Kargo.Kurye_Id, (List<SelectListItem>)ViewBag.dgr, "Seçiniz", new { @class = "form-control" })*@
-    </div>
+<div>
+    <label>Müşteri</label>
+    @Html.DropDownList("Musteri_Id", Model.MusteriSelectList, "Seçiniz", new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(m => m.KargoModel.Musteri_Id, "", new { @style = "color:red" })*@
+</div>
+<div>
+    <label>Kurye</label>
+    @Html.DropDownList("Kurye_Id", Model.KuryeSelectList, "Seçiniz", new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(m => m.KargoModel.Kurye_Id, "", new { @style = "color:red" })*@
+    @*@Html.DropDownListFor(m => m.Kargo.Kurye_Id, (List<SelectListItem>)ViewBag.dgr, "Seçiniz", new { @class = "form-control" })*@
+</div>
     <div>
         <label>Tür</label>
-        <input type="text" class="form-control" name="Tur" />
+        <input type="text" class="form-control" name="Tur" required="" maxlength="11" />
+        @*@Html.TextBoxFor(m => m.KargoModel.Tur, new { @class = "form-control" })*@
+        @*@Html.ValidationMessageFor(m => m.KargoModel.Tur, "", new { @style = "color:red" })*@
     </div>
     <div>
         <label>Boyut</label>
+        @* @Html.TextBoxFor(m => m.KargoModel.Boyut, new { @class = "form-control" })*@
+        @*@Html.ValidationMessageFor(m => m.KargoModel.Boyut, "", new { @style = "color:red" })*@
         <input type="text" class="form-control" name="Boyut" />
     </div>
     <div>
         <label>Ağırlık</label>
+        @* @Html.TextBoxFor(m => m.KargoModel.Agirlik, new { @class = "form-control" })*@
+        @*@Html.ValidationMessageFor(m => m.KargoModel.Agirlik, "", new { @style = "color:red" })*@
         <input type="text" class="form-control" name="Agirlik" />
     </div>
     <div>
         <label>Fiyat</label>
-        <input type="text" class="form-control" name="Fiyat" />
+        @* @Html.TextBoxFor(m => m.KargoModel.Fiyat, new { @class = "form-control" })*@
+        @*@Html.ValidationMessageFor(m => m.KargoModel.Fiyat, "", new { @style = "color:red" })*@
+        <input type="text" class="form-control" name="Fiyat" required="" />
     </div>
     <div style="margin-top:15px">
         <input type="submit" value="Kargo Ekle" class="btn btn-success" />

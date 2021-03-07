@@ -39,14 +39,15 @@ namespace DenemeBaglanti.Controllers
         [HttpGet]
         public ActionResult KargoEkle()
         {
+            var model = new KargoAddViewModel();
+        
+
             List<SelectListItem> kuryedeger = (from kurye in db.Kurye.ToList()
                                                select new SelectListItem
                                                {
                                                    Text = kurye.Ad + " " + kurye.Soyad,
                                                    Value = kurye.Id.ToString()
-                                               }).ToList();
-
-            var model = new KargoAddViewModel();
+                                               }).ToList();           
             model.KuryeSelectList = kuryedeger;
             model.MusteriSelectList = db.Musteri.Select(musteri => new SelectListItem()
             {
@@ -60,6 +61,21 @@ namespace DenemeBaglanti.Controllers
         [HttpPost]
         public RedirectToRouteResult KargoEkle(Kargo kargo)
         {
+            //if (!ModelState.IsValid)
+            //{
+            //    return RedirectToAction("KargoEkle");
+            //}
+
+
+            //var kargo = new Kargo();
+            //kargo.Kurye_Id = kargoModel.KargoModel.Kurye_Id;
+            //kargo.Musteri_Id = kargoModel.KargoModel.Musteri_Id;
+            //kargo.Tur = kargoModel.KargoModel.Tur;
+            //kargo.Agirlik = kargoModel.KargoModel.Agirlik;
+            //kargo.Boyut = kargoModel.KargoModel.Boyut;
+            //kargo.Fiyat = kargoModel.KargoModel.Fiyat;
+
+
             db.Kargo.Add(kargo);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -97,15 +113,15 @@ namespace DenemeBaglanti.Controllers
         }
 
         [HttpPost]
-        public ActionResult KargoGuncelle(Kargo GuncelKargo)
+        public ActionResult KargoGuncelle(Kargo guncelKargo)
         {
-            var kargo = db.Kargo.Find(GuncelKargo.Id);
-            kargo.Kurye_Id = GuncelKargo.Kurye_Id;
-            kargo.Musteri_Id = GuncelKargo.Musteri_Id;
-            kargo.Agirlik = GuncelKargo.Agirlik;
-            kargo.Boyut = GuncelKargo.Boyut;
-            kargo.Tur = GuncelKargo.Tur;
-            kargo.Fiyat = GuncelKargo.Fiyat;
+            var kargo = db.Kargo.Find(guncelKargo.Id);
+            kargo.Kurye_Id = guncelKargo.Kurye_Id;
+            kargo.Musteri_Id = guncelKargo.Musteri_Id;
+            kargo.Agirlik = guncelKargo.Agirlik;
+            kargo.Boyut = guncelKargo.Boyut;
+            kargo.Tur = guncelKargo.Tur;
+            kargo.Fiyat = guncelKargo.Fiyat;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
