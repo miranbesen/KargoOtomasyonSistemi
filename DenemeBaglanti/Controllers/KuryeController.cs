@@ -3,6 +3,8 @@ using DenemeBaglanti.Models.Kurye;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 
 namespace DenemeBaglanti.Controllers
@@ -13,10 +15,10 @@ namespace DenemeBaglanti.Controllers
 
         // GET: Kurye
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var KuryeList = db.Kurye.ToList();
-            var resultModel = new List<KuryeModel>();
+            List<KuryeModel> resultModel = new List<KuryeModel>();
             var KuryeModel = new KuryeModel();
             foreach (var item in KuryeList)
             {
@@ -31,7 +33,10 @@ namespace DenemeBaglanti.Controllers
                 };
                 resultModel.Add(KuryeModel);
             }
-            return View(resultModel);
+            PagedList<KuryeModel> pagedKuryeModel = new PagedList<KuryeModel>(resultModel, page, pageSize);
+
+
+            return View(pagedKuryeModel);
         }
 
         [HttpGet]

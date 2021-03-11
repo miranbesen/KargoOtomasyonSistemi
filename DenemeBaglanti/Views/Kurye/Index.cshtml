@@ -1,4 +1,7 @@
-﻿@model List<DenemeBaglanti.Models.Kurye.KuryeModel>
+﻿@model PagedList.IPagedList<DenemeBaglanti.Models.Kurye.KuryeModel>
+@using PagedList.Mvc
+@using PagedList
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -103,6 +106,11 @@
     }
 </script>
 
+
+@*@Html.PagedListPager(Model, page => Url.Action("KuryeModel", new { page, pageSize = Model.PageSize }))*@
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
 <div class="row">
     <a href="/Kurye/KuryeEkle/" class="btn btn-primary">YENİ KURYE EKLE</a>
 </div>
+

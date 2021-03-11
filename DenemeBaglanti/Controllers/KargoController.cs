@@ -3,6 +3,9 @@ using DenemeBaglanti.Models.Kargo;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+
 
 namespace DenemeBaglanti.Controllers
 {
@@ -12,10 +15,10 @@ namespace DenemeBaglanti.Controllers
 
         // GET: Kargo
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var kargoList = db.Kargo.ToList();
-            var resultModel = new List<KargoModel>();
+            List<KargoModel> resultModel = new List<KargoModel>();
             var kargoModel = new KargoModel();
             foreach (var item in kargoList)
             {
@@ -32,7 +35,12 @@ namespace DenemeBaglanti.Controllers
                 };
                 resultModel.Add(kargoModel);
             }
-            return View(resultModel);
+
+            PagedList<KargoModel> pagedKargoModel = new PagedList<KargoModel>(resultModel, page, pageSize);
+
+
+
+            return View(pagedKargoModel);
 
         }
 

@@ -1,5 +1,7 @@
 ﻿using DenemeBaglanti.Models.Entity;
 using DenemeBaglanti.Models.Musteri;
+using PagedList;
+using PagedList.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -13,10 +15,10 @@ namespace DenemeBaglanti.Controllers
 
         // GET: Musteri
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var musteriList = db.Musteri.ToList();
-            var resultModel = new List<MusteriModel>();
+            List<MusteriModel> resultModel = new List<MusteriModel>();
             var musteriModel = new MusteriModel();
             foreach (var item in musteriList)
             {
@@ -31,7 +33,10 @@ namespace DenemeBaglanti.Controllers
                 };
                 resultModel.Add(musteriModel);
             }
-            return View(resultModel);
+
+            PagedList<MusteriModel> pagedMusteriModel = new PagedList<MusteriModel>(resultModel, page, pageSize);
+
+            return View(pagedMusteriModel);
         }
 
         [HttpGet]
