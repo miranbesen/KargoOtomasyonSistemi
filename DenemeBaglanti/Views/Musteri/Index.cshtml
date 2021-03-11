@@ -64,6 +64,7 @@
                         <th>Adres</th>
                         <th>SIL</th>
                         <th>GUNCELLE</th>
+                        @*<th>ALERT</th>*@
                     </tr>
                 <tbody>
                     @foreach (var icerik in Model)
@@ -74,8 +75,10 @@
                             <td>@icerik.Soyad</td>
                             <td>@icerik.Telefon_No</td>
                             <td>@icerik.Adres</td>
-                            <td><a href="/Musteri/MusteriSil/@icerik.Id" class="btn btn-danger">SIL</a></td>
+                            <td>@Html.ActionLink("SIL", "MusteriSil", new { id = icerik.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten silmek istiyor musunuz?')" })</td>
+                            @*<td><a href="/Musteri/MusteriSil/@icerik.Id" class="btn btn-danger">SIL</a></td>*@
                             <td><a href="/Musteri/MusteriGuncelle/@icerik.Id" class="btn btn-success">GUNCELLE</a></td>
+                            @*<td>@Html.ActionLink("SIL BUTONU","MusteriSil",new {id=icerik.Id},new {@class="btn btn-warning",onclick="return confirm('Gerçekten silmek istiyor musunuz?')" })</td>*@
                         </tr>
                     }
                 </tbody>

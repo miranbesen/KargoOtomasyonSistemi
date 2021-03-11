@@ -7,17 +7,17 @@
 
 @using (Html.BeginForm("KargoEkle", "Kargo", FormMethod.Post))
 {
-<div>
-    <label>Müşteri</label>
-    @Html.DropDownList("Musteri_Id", Model.MusteriSelectList, "Seçiniz", new { @class = "form-control" })
-    @*@Html.ValidationMessageFor(m => m.KargoModel.Musteri_Id, "", new { @style = "color:red" })*@
-</div>
-<div>
-    <label>Kurye</label>
-    @Html.DropDownList("Kurye_Id", Model.KuryeSelectList, "Seçiniz", new { @class = "form-control" })
-    @*@Html.ValidationMessageFor(m => m.KargoModel.Kurye_Id, "", new { @style = "color:red" })*@
-    @*@Html.DropDownListFor(m => m.Kargo.Kurye_Id, (List<SelectListItem>)ViewBag.dgr, "Seçiniz", new { @class = "form-control" })*@
-</div>
+    <div>
+        <label>Müşteri</label>
+        @Html.DropDownList("Musteri_Id", Model.MusteriSelectList, "Seçiniz", new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(m => m.KargoModel.Musteri_Id, "", new { @style = "color:red" })*@
+    </div>
+    <div>
+        <label>Kurye</label>
+        @Html.DropDownList("Kurye_Id", Model.KuryeSelectList, "Seçiniz", new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(m => m.KargoModel.Kurye_Id, "", new { @style = "color:red" })*@
+        @*@Html.DropDownListFor(m => m.Kargo.Kurye_Id, (List<SelectListItem>)ViewBag.dgr, "Seçiniz", new { @class = "form-control" })*@
+    </div>
     <div>
         <label>Tür</label>
         <input type="text" class="form-control" name="Tur" required="" maxlength="11" />
@@ -43,7 +43,13 @@
         <input type="text" class="form-control" name="Fiyat" required="" />
     </div>
     <div style="margin-top:15px">
-        <input type="submit" value="Kargo Ekle" class="btn btn-success" />
+        <input type="submit" id="btn1" value="Kargo Ekle" class="btn btn-success" />
     </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Kargo Ekleme İslemi yapıldı...!');
+        });
+    </script>
+
 }
 

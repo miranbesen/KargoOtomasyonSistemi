@@ -6,12 +6,12 @@
 
 @using (Html.BeginForm("KuryeEkle", "Kurye", FormMethod.Post))
 {
-<div>
-    <label>Kurye Ad</label>
-    @*<input type="text" class="form-control" name="Ad" />*@
-    @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Ad, "", new { @style = "color:red" })
-</div>
+    <div>
+        <label>Kurye Ad</label>
+        @*<input type="text" class="form-control" name="Ad" />*@
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ad, "", new { @style = "color:red" })
+    </div>
     <div>
         <label>Kurye Soyad</label>
         @*<input type="text" class="form-control" name="Soyad" />*@
@@ -31,8 +31,14 @@
         @*<input type="text" class="form-control" name="Durum" />*@
     </div>
     <div style="margin-top:15px">
-        <input type="submit" value="Kurye Ekle" class="btn btn-success" />
+        <input type="submit" id="btn1" value="Kurye Ekle" class="btn btn-success" />
     </div>
+
+    <script>
+        $('#btn1').click(function () {
+            alert('Kurye Ekleme İslemi yapıldı...!');
+        });
+    </script>
 
 }
 

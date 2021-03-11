@@ -73,7 +73,8 @@
                             <td>@icerik.Soyad</td>
                             <td>@icerik.Telefon</td>
                             <td>@icerik.Durum</td>
-                            <td><a href="/Kurye/KuryeSil/@icerik.Id" class="btn btn-danger">SIL</a></td>
+                            <td>@Html.ActionLink("SIL", "KuryeSil", new { id = icerik.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Gerçekten silmek istiyor musunuz?')" })</td>
+                            @*<td><a href="/Kurye/KuryeSil/@icerik.Id" class="btn btn-danger">SIL</a></td>*@
                             <td><a href="/Kurye/KuryeGuncelle/@icerik.Id" class="btn btn-success">GUNCELLE</a></td>
                         </tr>
                     }
