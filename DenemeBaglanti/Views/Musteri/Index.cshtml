@@ -44,6 +44,13 @@
             /* Add a grey background color to the table header and on hover */
             background-color: #f1f1f1;
         }
+
+    .modal-body {
+        background-image: url('https://www.w3schools.com/howto/img_snow_wide.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 450px;
+    }
 </style>
 
 <br />
@@ -110,8 +117,56 @@
     }
 </script>
 
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new { page }))
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
-<div class="row">
-    <a href="/Musteri/MusteriEkle/" class="btn btn-primary">YENİ MUSTERİ EKLE</a>
+@*<div class="row">
+        <a href="/Musteri/MusteriEkle/" class="btn btn-primary">YENİ MUSTERİ EKLE</a>
+    </div>*@
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    YENİ MUSTERİ EKLE
+</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Musteri Ekleme Ekranı</h2>
+            </div>
+            <form method="post" action="/Musteri/MusteriEkle">
+                <div class="modal-body">
+                    <label>
+                        Musteri Ad
+                    </label>
+                    <input type="text" class="form-control" name="Ad" required="" />
+                    <br />
+                    <label>
+                        Musteri Soyad
+                    </label>
+                    <input type="text" class="form-control" name="Soyad" required="" />
+                    <br />
+                    <label>
+                        Musteri Telefon
+                    </label>
+                    <input type="text" class="form-control" name="Telefon_No" required="" />
+                    <br />
+                    <label>
+                        Musteri TC_Kimlik
+                    </label>
+                    <input type="text" class="form-control" name="TC_Kimlik" required="" />
+                    <br />
+                    <label>
+                        Musteri Adres Bilgi
+                    </label>
+                    <input type="text" class="form-control" name="Adres" required="" />
+
+                    <div class="modal-footer">
+                        <button class="btn btn-info">Musteri Ekleme İslemini Yap</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgec</button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

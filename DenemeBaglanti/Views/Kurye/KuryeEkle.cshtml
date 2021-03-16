@@ -8,9 +8,10 @@
 {
     <div>
         <label>Kurye Ad</label>
-        @*<input type="text" class="form-control" name="Ad" />*@
-        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+         @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Ad, "", new { @style = "color:red" })
+    @*<input type="text" class="form-control" name="Ad" />*@
+       
     </div>
     <div>
         <label>Kurye Soyad</label>

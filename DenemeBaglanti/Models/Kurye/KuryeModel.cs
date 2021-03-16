@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using DenemeBaglanti.Models.Entity;
+using PagedList;
 
 namespace DenemeBaglanti.Models.Kurye
 {
@@ -20,6 +21,8 @@ namespace DenemeBaglanti.Models.Kurye
         [Required(ErrorMessage = "Kargo durumunuzu belirtiniz lutfen....!")]
         public string Durum { get; set; }
 
+        
+        //public IPagedList<DenemeBaglanti.Models.Kurye.KuryeModel> KuryePagedL { set; get; }
 
     }
 }

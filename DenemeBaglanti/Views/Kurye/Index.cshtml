@@ -1,6 +1,7 @@
-﻿@model PagedList.IPagedList<DenemeBaglanti.Models.Kurye.KuryeModel>
+﻿
 @using PagedList.Mvc
 @using PagedList
+@model PagedList.IPagedList<DenemeBaglanti.Models.Kurye.KuryeModel>
 
 @{
     ViewBag.Title = "Index";
@@ -43,6 +44,7 @@
             /* Add a grey background color to the table header and on hover */
             background-color: #f1f1f1;
         }
+
 </style>
 
 <br />
@@ -111,7 +113,51 @@
 @*@Html.PagedListPager(Model, page => Url.Action("KuryeModel", new { page, pageSize = Model.PageSize }))*@
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
-<div class="row">
-    <a href="/Kurye/KuryeEkle/" class="btn btn-primary">YENİ KURYE EKLE</a>
+@*<div class="row">
+        <a href="/Kurye/KuryeEkle/" class="btn btn-primary">YENİ KURYE EKLE</a>
+    </div>*@
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    YENİ KURYE EKLE
+</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Kurye Ekleme Ekranı</h2>
+            </div>
+            <form method="post" action="/Kurye/KuryeEkle">
+                <div class="modal-body">
+                    <label>
+                        Kurye Ad
+                    </label>
+                    @*@Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Ad, "", new { @style = "color:red" })*@
+                    <input type="text" class="form-control" name="Ad" required="" />
+                    <br />
+                    <label>
+                        Kurye Soyad
+                    </label>
+                    <input type="text" class="form-control" name="Soyad" required="" />
+                    <br />
+                    <label>
+                        Kurye Telefon
+                    </label>
+                    <input type="text" class="form-control" name="Telefon" required="" />
+                    <br />
+                    <label>
+                        Kurye Durum
+                    </label>
+                    <input type="text" class="form-control" name="Durum" required="" />
+                    <br />
+                    
+                    <div class="modal-footer">
+                        <button class="btn btn-info">Musteri Ekleme İslemini Yap</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgec</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 

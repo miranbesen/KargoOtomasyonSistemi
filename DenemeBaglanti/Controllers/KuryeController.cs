@@ -18,7 +18,8 @@ namespace DenemeBaglanti.Controllers
         public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var KuryeList = db.Kurye.ToList();
-            List<KuryeModel> resultModel = new List<KuryeModel>();
+            //List<KuryeModel> resultModel = new List<KuryeModel>(); //paged list icin
+            var resultModel = new List<KuryeModel>();
             var KuryeModel = new KuryeModel();
             foreach (var item in KuryeList)
             {
@@ -32,10 +33,11 @@ namespace DenemeBaglanti.Controllers
 
                 };
                 resultModel.Add(KuryeModel);
+
             }
-            PagedList<KuryeModel> pagedKuryeModel = new PagedList<KuryeModel>(resultModel, page, pageSize);
-
-
+            PagedList<KuryeModel> pagedKuryeModel = new PagedList<KuryeModel>(resultModel, page, pageSize);//paged list icin
+            //pagedAndNormalModel.NormalKuryeModel = resultModel;  //paged list icin
+            //pagedAndNormalModel.PagedKuryeModel = new PagedList<KuryeModel>(resultModel, page, pageSize); //paged list icin
             return View(pagedKuryeModel);
         }
 
@@ -48,10 +50,10 @@ namespace DenemeBaglanti.Controllers
         [HttpPost]
         public ActionResult KuryeEkle(KuryeModel p1)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("KuryeEkle");
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("KuryeEkle");
+            //}
             var kurye = new Kurye();
             kurye.Ad = p1.Ad;
             kurye.Soyad = p1.Soyad;
