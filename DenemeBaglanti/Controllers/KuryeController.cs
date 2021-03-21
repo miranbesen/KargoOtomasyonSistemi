@@ -14,7 +14,7 @@ namespace DenemeBaglanti.Controllers
         KargoOtomasyonSistemiEntities db = new KargoOtomasyonSistemiEntities();
 
         // GET: Kurye
-        [HttpGet]
+        [HttpGet, Authorize]
         public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var KuryeList = db.Kurye.ToList();

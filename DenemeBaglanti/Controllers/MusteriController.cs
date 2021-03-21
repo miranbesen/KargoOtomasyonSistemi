@@ -14,7 +14,7 @@ namespace DenemeBaglanti.Controllers
         KargoOtomasyonSistemiEntities db = new KargoOtomasyonSistemiEntities();
 
         // GET: Musteri
-        [HttpGet]
+        [HttpGet, Authorize]
         public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var musteriList = db.Musteri.ToList();
@@ -39,12 +39,14 @@ namespace DenemeBaglanti.Controllers
             return View(pagedMusteriModel);
         }
 
+
         [HttpGet]
         public ActionResult MusteriEkle()
         {
             return View();
         }
 
+       
         [HttpPost]
         public ActionResult MusteriEkle(MusteriModel musteri)
         {

@@ -14,7 +14,8 @@ namespace DenemeBaglanti.Controllers
         KargoOtomasyonSistemiEntities db = new KargoOtomasyonSistemiEntities();
 
         // GET: Kargo
-        [HttpGet]
+        
+        [HttpGet, Authorize]
         public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var kargoList = db.Kargo.ToList();
@@ -44,7 +45,7 @@ namespace DenemeBaglanti.Controllers
 
         }
 
-        [HttpGet]
+        [HttpGet, Authorize]
         public ActionResult KargoEkle()
         {
             var model = new KargoAddViewModel();

@@ -29,5 +29,6 @@ namespace DenemeBaglanti.Models.Entity
         public virtual DbSet<Kurye> Kurye { get; set; }
         public virtual DbSet<Musteri> Musteri { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<KullaniciGirisi> KullaniciGirisi { get; set; }
     }
 }
