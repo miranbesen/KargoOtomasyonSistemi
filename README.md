@@ -1,2 +1,2 @@
 # KargoOtomasyonSistemi
-MVC ile kargo otomasyon sistemi uygulaması.
+Developed cargo tracking system with MVC
