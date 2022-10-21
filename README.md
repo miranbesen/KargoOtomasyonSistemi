@@ -1,2 +1,2 @@
 # KargoOtomasyonSistemi
-Developed cargo tracking system with MVC
+Developed cargo tracking system with MVC.
